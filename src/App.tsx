@@ -1,15 +1,16 @@
-import Footer from './components/footer/Footer'
-import Navbar from './components/navbar/Navbar'
-import Home from './pages/tsx/Home'
+// src/App.tsx
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import Home from './pages/tsx/Home';
 
 function App() {
   return (
     <>
       <Navbar />
-        <Home />
+      <Home />
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

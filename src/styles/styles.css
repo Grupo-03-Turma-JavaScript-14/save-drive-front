@@ -28,29 +28,24 @@ body {
     background-color: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Garante que o rodapé fique sempre embaixo */
+    min-height: 100vh; 
 }
 
 main {
     flex: 1;
-    padding: 40px 20px; /* Margem interna padrão para as páginas */
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto; /* Centraliza o conteúdo na tela */
 }
 
 /* ==========================================================================
    COMPONENTES GLOBAIS - Menu, Rodapé e Botões Padrão
    ========================================================================== */
-header, .menu-global {
+
+.menu-global {
     background-color: var(--primary-navy);
     color: var(--white);
     padding: 15px 30px;
 }
 
-footer, .rodape-global {
+.rodape-global {
     background-color: var(--text-dark);
     color: var(--white);
     text-align: center;
