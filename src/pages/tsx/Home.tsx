@@ -26,7 +26,7 @@ export default function Home() {
             <a href="#planos" className="btn btn--primary">
               Simule seu seguro agora
             </a>
-            <a href="#planos" className="btn btn--outline">
+            <a href="#planos" className="btn btn--primary">
               Ver planos
             </a>
           </div>
