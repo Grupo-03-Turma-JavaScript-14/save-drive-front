@@ -1,0 +1,84 @@
+/* ==========================================================================
+   VARIABLES - Cores Oficiais e Alinhamento do Save Drive
+   ========================================================================== */
+:root {
+    --primary-navy: #1E3A8A;   /* Azul Marinho (Menu, Títulos - Confiança) */
+    --accent-cyan: #06B6D4;    /* Ciano (Botões de Ação, Destaques Tecnológicos) */
+    --success-green: #98D8AA;  /* Verde (Mascote, Status Elegível do Desconto) */
+    --bg-light: #F1F5F9;       /* Cinza Claro (Fundo das páginas - Interface Limpa) */
+    --text-dark: #0F172A;      /* Cor do Texto Principal (Contraste) */
+    --white: #FFFFFF;          /* Fundo de Cards, Tabelas e Inputs */
+    
+    --font-main: 'Poppins', 'Lato', sans-serif;
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES - Margens, Padding e Harmonia Visual
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o rodapé fique sempre embaixo */
+}
+
+main {
+    flex: 1;
+    padding: 40px 20px; /* Margem interna padrão para as páginas */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; /* Centraliza o conteúdo na tela */
+}
+
+/* ==========================================================================
+   COMPONENTES GLOBAIS - Menu, Rodapé e Botões Padrão
+   ========================================================================== */
+header, .menu-global {
+    background-color: var(--primary-navy);
+    color: var(--white);
+    padding: 15px 30px;
+}
+
+footer, .rodape-global {
+    background-color: var(--text-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+/* Botão Padrão Ciano (Foco em Conversão/Ação) */
+.btn-primary {
+    background-color: var(--accent-cyan);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0891b2; /* Tom de ciano levemente mais escuro para o hover */
+}
+
+/* Badge/Destaque do Desconto de 20% (Verde) */
+.badge-desconto {
+    background-color: var(--success-green);
+    color: var(--text-dark);
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
