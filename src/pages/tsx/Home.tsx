@@ -120,7 +120,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="flex-1 w-full max-w-md mx-auto"
           >
-            <div className="bg-white rounded-2xl shadow-[0_8px_40px_0_rgba(30,58,138,0.12)] p-8 min-h-[360px] flex flex-col items-center justify-center gap-4 border border-[#1E3A8A]/10">
+            <div className="bg-white rounded-2xl shadow-[0_8px_40px_0_rgba(30,58,138,0.12)] p-8 min-h-90 flex flex-col items-center justify-center gap-4 border border-[#1E3A8A]/10">
               {/* SLOT: componente de desconto */}
               <div className="w-full flex flex-col items-center gap-3 text-[#0F172A]/30">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -294,7 +294,7 @@ function PlansSection() {
                 {plan.features.map((feat) => (
                   <li key={feat} className="flex items-start gap-2 text-sm">
                     <svg
-                      className={`mt-0.5 flex-shrink-0 ${plan.highlight ? 'text-[#06B6D4]' : 'text-[#06B6D4]'}`}
+                      className={`mt-0.5 shrink-0 ${plan.highlight ? 'text-[#06B6D4]' : 'text-[#06B6D4]'}`}
                       width="16" height="16" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                     >

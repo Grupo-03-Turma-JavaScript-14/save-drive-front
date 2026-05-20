@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 flex-shrink-0">
+          <a href="#" className="flex items-center gap-2 shrink-0">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M16 2L4 7V17C4 23.627 9.373 29.627 16 31C22.627 29.627 28 23.627 28 17V7L16 2Z"
