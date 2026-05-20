@@ -1,4 +1,4 @@
-
+import CalculoSeguro from './CalculoSeguro';
 import '../css/Home.css';
 
 export default function Home() {
@@ -48,11 +48,8 @@ export default function Home() {
         </div>
 
         <div className="hero__card">
-          <div className="hero-card">
-            <div className="hero-card__icon">%</div>
-            <p className="hero-card__text">Componente de cálculo de desconto</p>
+          <CalculoSeguro />
           </div>
-        </div>
       </section>
 
       {/* FEATURES / CATEGORIAS */}
