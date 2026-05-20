@@ -1,0 +1,90 @@
+:root {
+  /* =========================
+     SAVEDRIVE / SEGUROS THEME
+  ========================= */
+
+  /* Cores principais */
+  --color-primary: #1e88e5;
+  --color-primary-light: #4da6ff;
+  --color-primary-dark: #07549a;
+
+  --color-success: #00a86b;
+  --color-success-dark: #008f5d;
+  --color-success-soft: #ecfdf5;
+
+  --color-warning: #f59e0b;
+  --color-warning-dark: #b45309;
+  --color-warning-soft: #fffbeb;
+
+  --color-danger: #ef4444;
+
+  /* Neutros */
+  --color-white: #ffffff;
+  --color-background: #f8fafc;
+  --color-background-soft: #f1f5f9;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Textos */
+  --text-title: var(--color-slate-900);
+  --text-body: var(--color-slate-600);
+  --text-muted: var(--color-slate-400);
+  --text-light: var(--color-white);
+
+  /* Bordas */
+  --border-light: var(--color-slate-100);
+  --border-default: var(--color-slate-200);
+  --border-primary: rgba(30, 136, 229, 0.35);
+  --border-success: rgba(0, 168, 107, 0.22);
+  --border-warning: rgba(245, 158, 11, 0.3);
+
+  /* Fundos */
+  --surface-white: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-primary-soft: rgba(30, 136, 229, 0.08);
+  --surface-success-soft: rgba(0, 168, 107, 0.08);
+  --surface-warning-soft: rgba(245, 158, 11, 0.1);
+
+  /* Gradientes */
+  --gradient-page: radial-gradient(
+      circle at top left,
+      rgba(141, 225, 169, 0.22),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(77, 166, 255, 0.22),
+      transparent 38%
+    ),
+    linear-gradient(135deg, #ffffff 0%, #eef8ff 48%, #effff5 100%);
+
+  --gradient-primary: linear-gradient(135deg, #1e88e5, #4da6ff);
+  --gradient-success: linear-gradient(135deg, #00a86b, #16b894);
+  --gradient-card: linear-gradient(145deg, #ffffff, #f8fafc);
+
+  /* Sombras */
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 24px 60px rgba(7, 84, 154, 0.16);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 999px;
+
+  /* Transições */
+  --transition-fast: 0.2s ease;
+  --transition-default: 0.3s ease;
+}
