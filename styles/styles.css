@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* ==========================================================================
    VARIABLES - Cores Oficiais e Alinhamento do Save Drive
    ========================================================================== */
@@ -32,11 +34,7 @@ body {
 }
 
 main {
-    flex: 1;
-    padding: 40px 20px; /* Margem interna padrão para as páginas */
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto; /* Centraliza o conteúdo na tela */
+   flex: 1;
 }
 
 /* ==========================================================================
