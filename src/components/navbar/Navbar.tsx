@@ -4,10 +4,10 @@ import "./Navbar.css";
 import logo from "../../assets/Savedrive-logo.png";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Sobre Nós", href: "#" },
-  { label: "Categorias", href: "#" },
-  { label: "Produtos", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "Sobre Nós", href: "/sobre" },
+  { label: "Usuarios", href: "/usuarios" },
+  { label: "Categorias", href: "/categorias" },
 ];
 
 export default function Navbar() {
