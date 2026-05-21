@@ -15,7 +15,7 @@ Este repositório contém todo o desenvolvimento do Front-end da aplicação, co
 - ♻️ Componentização reutilizável
 - 🚀 Performance e escalabilidade
 - 🧠 Navegação intuitiva
-- ✨ Experiência visual elegante
+- ✨ Experiência visual 
 
 A aplicação apresenta informações sobre os planos, fluxo de navegação institucional e uma regra de negócio especial para cálculo de vantagens.
 
