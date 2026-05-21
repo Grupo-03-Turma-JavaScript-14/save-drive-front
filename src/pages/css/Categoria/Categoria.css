@@ -1,0 +1,236 @@
+/* ========================================
+   TELA DE CATEGORIAS
+======================================== */
+
+.categorias-container {
+    min-height: 100vh;
+    padding: 0 4rem 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.categorias-header-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 3rem;
+  padding: 3rem 4rem;
+  background:
+    radial-gradient(circle at top left, rgba(141, 225, 169, 0.24), transparent 32%),
+    linear-gradient(135deg, #063a73 0%, #07549a 45%, #0f172a 100%);
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.categorias-header {
+    width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.categorias-titulo-area {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.categorias-titulo {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    line-height: 1.2;
+}
+
+.categorias-subtitulo {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    opacity: 0.6;
+}
+
+.categorias-total {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    opacity: 0.85;
+}
+
+/* ========================================
+   BOTÃO CRIAR
+======================================== */
+
+.categorias-btn-criar {
+    background: #0891b2;
+    color: var(--color-button-text);
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: background-color 0.2s ease,
+                transform 0.15s ease,
+                box-shadow 0.2s ease;
+    white-space: nowrap;
+}
+
+.categorias-btn-criar:hover {
+    background: var(--color-button-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+.categorias-btn-criar:active {
+    transform: scale(0.97);
+}
+
+/* ========================================
+   GRID
+======================================== */
+
+.categorias-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    padding: 2rem;
+    align-items: start;
+    justify-content: center;
+    justify-items: center;
+}
+
+.categorias-filtros {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 auto 1rem auto;
+    align-items: center;
+}
+
+.categorias-filtros input,
+.categorias-filtros select {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+/* ========================================
+   ESTADO VAZIO
+======================================== */
+
+.categorias-grid:empty::after {
+    content: "Nenhuma categoria cadastrada.";
+    color: var(--color-text-dark);
+    opacity: 0.45;
+    font-size: 0.95rem;
+    font-style: italic;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1280px) {
+  .categorias-container {
+    padding: 0 2rem 3rem;
+  }
+
+  .categorias-header-wrapper {
+    padding: 3rem 2rem;
+  }
+
+  .categorias-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* ── 1024px: 2 colunas ── */
+@media (max-width: 1024px) {
+  .categorias-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .categorias-titulo {
+    font-size: 1.6rem;
+  }
+}
+
+/* ── 768px ── */
+@media (max-width: 768px) {
+  .categorias-container {
+    padding: 0 1.5rem 2rem;
+  }
+
+  .categorias-header-wrapper {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2rem 1.5rem;
+  }
+
+  .categorias-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .categorias-btn-criar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .categorias-filtros {
+    gap: 10px;
+  }
+
+  .categorias-filtros input,
+  .categorias-filtros select {
+    min-width: calc(50% - 6px);
+  }
+}
+
+/* ── 520px: 1 coluna ── */
+@media (max-width: 520px) {
+  .categorias-container {
+    padding: 0 1rem 2rem;
+  }
+
+  .categorias-header-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .categorias-titulo {
+    font-size: 1.4rem;
+  }
+
+  .categorias-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .categorias-filtros input,
+  .categorias-filtros select {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,61 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: 10px;
+  width: 520px;
+  max-width: calc(100% - 32px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+}
+
+.modal-body { padding: 18px; }
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+.form-row { margin-bottom: 14px; }
+.form-row label { display:block; font-size:14px; margin-bottom:8px; color:var(--text-dark); }
+.form-row input { width:100%; padding:10px 12px; border:1px solid rgba(15,23,42,0.08); border-radius:8px; background: var(--white); color:var(--text-dark); }
+.modal-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:16px }
+.btn { padding:10px 14px; border-radius:8px; border: none; cursor:pointer }
+.btn-primary { background: var(--accent-cyan); color: var(--white) }
+.btn-secondary { 
+  background-color: #EF4444;
+  color: var(--white); }
+.btn-secondary:hover {
+  background-color: #DC2626;
+}
+
+@media (max-width: 520px) {
+  .modal-content { width: calc(100% - 24px); }
+  .form-row input { padding: 12px; }
+  .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn {
+    width: 100%;
+  }
+}

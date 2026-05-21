@@ -1,14 +1,36 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AboutUs from './pages/tsx/Aboutus'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Usuario from './pages/tsx/Usuario/Usuario'
+import Categoria from './pages/tsx/Categoria/Categoria'
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import Home from './pages/tsx/Home';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/sobre" element={<AboutUs />} />
-      </Routes>
-    </BrowserRouter>
-  )
+    <>
+   <Navbar />
+        <BrowserRouter>
+            <Routes>
+              <Route
+                    path="/"
+                    element={<Home />}
+                />
+               <Routes>
+         <Route path="/sobre" element={<AboutUs />} />
+             </Routes>
+                <Route
+                    path="/usuarios"
+                    element={<Usuario />}
+                />
+                <Route
+                    path="/categorias"
+                    element={<Categoria />}
+                />
+            </Routes>
+        </BrowserRouter>
+        <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
