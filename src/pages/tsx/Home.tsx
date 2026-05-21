@@ -24,9 +24,6 @@ export default function Home() {
 
           <div className="hero__actions">
             <a href="#planos" className="btn btn--primary">
-              Simule seu seguro agora
-            </a>
-            <a href="#planos" className="btn btn--primary">
               Ver planos
             </a>
           </div>
@@ -124,9 +121,11 @@ export default function Home() {
           <article className="plan-card">
             <header className="plan-card__header">
               <h3 className="plan-card__name">Básico</h3>
+              
             </header>
             <div className="plan-card__price">
-              <span className="plan-card__price-value">R$ 89,90</span>
+              <span className='plan-card__features'>A partir de</span>
+              <span className="plan-card__price-value">R$ 49,99</span>
               <span className="plan-card__price-period">/mês</span>
             </div>
             <ul className="plan-card__features">
@@ -144,10 +143,12 @@ export default function Home() {
             <header className="plan-card__header">
               <h3 className="plan-card__name">Intermediário</h3>
               <span className="plan-card__badge">Mais popular</span>
+              
             </header>
             <div className="plan-card__price">
-              <span className="plan-card__price-value">R$ 129,90</span>
-              <span className="plan-card__price-period">/mês</span>
+              <span className='plan-card__features'>A partir de</span>
+              <span className="plan-card__price-value">R$ 89,90</span>
+              <span className="plan-card__price-period-special">/mês</span>
             </div>
             <ul className="plan-card__features">
               <li>Tudo do plano Básico</li>
@@ -165,7 +166,8 @@ export default function Home() {
               <h3 className="plan-card__name">Premium</h3>
             </header>
             <div className="plan-card__price">
-              <span className="plan-card__price-value">R$ 199,90</span>
+              <span className='plan-card__features'>A partir de</span>
+              <span className="plan-card__price-value">R$ 109,90</span>
               <span className="plan-card__price-period">/mês</span>
             </div>
             <ul className="plan-card__features">

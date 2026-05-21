@@ -337,6 +337,12 @@
   margin-left: 0.3rem;
 }
 
+.plan-card__price-period-special {
+  font-size: 0.9rem;
+  color: rgb(255, 255, 255);
+  margin-left: 0.3rem;
+}
+
 .plan-card__features {
   list-style: none;
   display: flex;
