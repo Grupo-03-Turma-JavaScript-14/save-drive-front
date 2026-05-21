@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react'
 import {
   formatMoney,
   getCategoriaNome,
-} from '../../../../../service/Service'
+} from '../../../../../Service/Service'
 
 import type {
   Categoria,
   CreateProdutoDto,
   Produto,
   UpdateProdutoDto,
-} from '../../../../../service/Types'
+} from '../../../../../Service/Types'
 
 import '../../../../css/Produto/Contratos/LeftBar.css'
 

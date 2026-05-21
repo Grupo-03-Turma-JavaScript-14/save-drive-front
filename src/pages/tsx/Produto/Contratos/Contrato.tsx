@@ -8,7 +8,7 @@ import LeftBar from './Components/LeftBar'
 import RightBar from './Components/RightBar'
 import DownBar from './Components/DownBar'
 
-import { contratoApi } from '../../../../service/Service'
+import { contratoApi } from '../../../../Service/Service'
 
 import type {
   Categoria,
@@ -19,7 +19,7 @@ import type {
   Produto,
   UpdateProdutoDto,
   Usuario,
-} from '../../../../service/Types'
+} from '../../../../Service/Types'
 
 function Contrato() {
   const [produtos, setProdutos] = useState<Produto[]>([])

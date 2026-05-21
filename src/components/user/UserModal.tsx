@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Modal from "../modalpopup/Modal";
+import Modal from "../Modalpopup/Modal";
 
 interface User {
   id?: number;

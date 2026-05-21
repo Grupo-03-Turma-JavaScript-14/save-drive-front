@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
-import '../../../css/Produto/Usuario/Usuario.css'
 
-import CardUsuario from '../../../../components/cardusuario/CardUsuario'
-import UserModal from '../../../../components/user/UserModal'
-import DeleteConfirm from '../../../../components/modalpopup/DeleteConfirm'
+import CardUsuario from '../../../../components/Cardusuario/CardUsuario'
+import UserModal from '../../../../components/User/UserModal'
+import DeleteConfirm from '../../../../components/Modalpopup/DeleteConfirm'
 
-import { contratoApi } from '../../../../service/Service'
+import { contratoApi } from '../../../../Service/Service'
 import type {
   CreateUsuarioDto,
   UpdateUsuarioDto,
   Usuario as UsuarioType,
-} from '../../../../service/Types'
+} from '../../../../Service/Types'
+
+import '../../../css/Produto/Usuario/Usuario.css'
 
 type UsuarioForm = CreateUsuarioDto & {
   id?: number
@@ -118,7 +119,9 @@ function Usuario() {
 
       await contratoApi.deleteUsuario(toDeleteId)
 
-      setUsuarios((prev) => prev.filter((usuario) => usuario.id !== toDeleteId))
+      setUsuarios((prev) =>
+        prev.filter((usuario) => usuario.id !== toDeleteId),
+      )
     } catch (error) {
       console.error('Erro ao excluir usuário:', error)
       setErro('Não foi possível excluir o usuário.')

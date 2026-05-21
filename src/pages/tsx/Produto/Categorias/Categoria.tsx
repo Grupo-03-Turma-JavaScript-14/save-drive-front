@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useState } from 'react'
 import '../../../css/Produto/Categoria/Categoria.css'
 
-import CategoryModal from '../../../../components/categoria/CategoriaModal'
-import DeleteConfirm from '../../../../components/modalpopup/DeleteConfirm'
-import { CardCategoria } from '../../../../components/cardcategoria/CardCategoria'
+import CategoryModal from '../../../../components/Categoria/CategoriaModal'
+import DeleteConfirm from '../../../../components/Modalpopup/DeleteConfirm'
+import { CardCategoria } from '../../../../components/Cardcategoria/CardCategoria'
 
-import { contratoApi } from '../../../../service/Service'
+import { contratoApi } from '../../../../Service/Service'
 import type {
   Categoria as CategoriaType,
   CreateCategoriaDto,
   UpdateCategoriaDto,
-} from '../../../../service/Types'
+} from '../../../../Service/Types'
 
 type CategoriaForm = {
   id?: number

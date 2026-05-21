@@ -1,8 +1,8 @@
 import {
   formatMoney,
   getCategoriaNome,
-} from '../../../../../service/Service'
-import type { Contrato } from '../../../../../service/Types'
+} from '../../../../../Service/Service'
+import type { Contrato } from '../../../../../Service/Types'
 import '../../../../css/Produto/Contratos/DownBar.css'
 
 interface DownBarProps {

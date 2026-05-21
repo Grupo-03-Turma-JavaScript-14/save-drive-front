@@ -6,7 +6,7 @@ import {
   getCategoriaDescricao,
   getCategoriaNome,
   todayIsoDate,
-} from '../../../../../service/Service'
+} from '../../../../../Service/Service'
 
 import type {
   Categoria,
@@ -15,7 +15,7 @@ import type {
   Produto,
   UpdateProdutoDto,
   Usuario,
-} from '../../../../../service/Types'
+} from '../../../../../Service/Types'
 
 import UserBar from './UserBar'
 import '../../../../css/Produto/Contratos/RightBar.css'

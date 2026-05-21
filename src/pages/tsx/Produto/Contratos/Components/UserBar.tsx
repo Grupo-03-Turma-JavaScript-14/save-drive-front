@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import type { CreateUsuarioDto, Usuario } from '../../../../../service/Types'
+import type { CreateUsuarioDto, Usuario } from '../../../../../Service/Types'
 import '../../../../css/Produto/Contratos/UserBar.css'
 
 interface UserBarProps {

@@ -8,14 +8,14 @@ import {
 } from 'react-router-dom'
 
 import Loading from './components/Loading/Loading'
-import Navbar from './components/navbar/Navbar'
-import Footer from './components/footer/Footer'
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
 
-import Home from './Pages/tsx/Home'
-import Aboutus from './Pages/tsx/Aboutus'
-import Contrato from './Pages/tsx/Produto/Contratos/Contrato'
-import Categoria from './Pages/tsx/Produto/Categorias/Categoria'
-import Usuario from './Pages/tsx/Produto/Usuario/Usuario'
+import Home from './Pages/Tsx/Home'
+import Aboutus from './Pages/Tsx/Aboutus'
+import Contrato from './Pages/Tsx/Produto/Contratos/Contrato'
+import Categoria from './Pages/Tsx/Produto/Categorias/Categoria'
+import Usuario from './Pages/Tsx/Produto/Usuario/Usuario'
 
 function AppRoutes() {
   const location = useLocation()
