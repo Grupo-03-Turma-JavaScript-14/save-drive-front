@@ -5,6 +5,7 @@ import {
   formatMoney,
   getCategoriaDescricao,
   getCategoriaNome,
+  todayIsoDate,
 } from '../../../../../service/Service'
 
 import type {
@@ -12,6 +13,7 @@ import type {
   CreateContratoDto,
   CreateUsuarioDto,
   Produto,
+  UpdateProdutoDto,
   Usuario,
 } from '../../../../../service/Types'
 
@@ -26,7 +28,7 @@ interface RightBarProps {
   onSelectUsuario: (usuario: Usuario) => void
   onCreateUsuario: (usuario: CreateUsuarioDto) => Promise<void>
   onCreateContrato: (dto: CreateContratoDto) => void
-  onUpdateProduto: (produto: Produto) => void
+  onUpdateProduto: (produto: UpdateProdutoDto) => void
 }
 
 function RightBar({
@@ -39,12 +41,14 @@ function RightBar({
   onCreateContrato,
   onUpdateProduto,
 }: RightBarProps) {
-  const [categoriaId, setCategoriaId] = useState<number>(1)
+  const [categoriaId, setCategoriaId] = useState<number | null>(null)
   const [success, setSuccess] = useState(false)
 
   useEffect(() => {
-    if (produtoSelecionado) {
+    if (produtoSelecionado?.categoria?.id) {
       setCategoriaId(produtoSelecionado.categoria.id)
+    } else {
+      setCategoriaId(null)
     }
   }, [produtoSelecionado])
 
@@ -61,14 +65,17 @@ function RightBar({
   const produto = produtoSelecionado
 
   const anoAtual = new Date().getFullYear()
-  const idade = anoAtual - produto.ano
+  const idade = anoAtual - Number(produto.ano)
   const valorBase = Number(produto.valorBase)
 
   const categoriaSelecionada =
-    categorias.find((categoria) => categoria.id === categoriaId) ||
+    categorias.find((categoria) => categoria.id === categoriaId) ??
     produto.categoria
 
-  const categoriaFoiAlterada = categoriaSelecionada.id !== produto.categoria.id
+  const categoriaFoiAlterada =
+    !!categoriaSelecionada?.id &&
+    !!produto.categoria?.id &&
+    categoriaSelecionada.id !== produto.categoria.id
 
   const temDesconto = idade >= 10
   const valorDesconto = temDesconto ? valorBase * 0.2 : 0
@@ -78,26 +85,38 @@ function RightBar({
 
   if (!usuarioSelecionado) {
     erro = 'Selecione ou crie um usuário para emitir o contrato.'
-  } else if (produto.ano > anoAtual) {
+  } else if (!categoriaSelecionada?.id) {
+    erro = 'Selecione um plano de cobertura.'
+  } else if (Number(produto.ano) > anoAtual) {
     erro = 'O ano do veículo não pode ser maior que o ano atual.'
   } else if (valorBase <= 0 || Number.isNaN(valorBase)) {
     erro = 'O valor base do produto é inválido.'
   }
 
   function alterarCategoriaProduto() {
+    if (!categoriaSelecionada?.id) return
+
     onUpdateProduto({
-      ...produto,
-      categoria: categoriaSelecionada,
+      id: produto.id,
+      modelo: produto.modelo,
+      marca: produto.marca,
+      ano: Number(produto.ano),
+      valorBase: Number(produto.valorBase),
+      categoria: {
+        id: categoriaSelecionada.id,
+      },
     })
   }
 
   function emitirContrato() {
-    if (erro || !usuarioSelecionado) return
+    if (erro || !usuarioSelecionado || !categoriaSelecionada?.id) return
 
     onCreateContrato({
       produtoId: produto.id,
       categoriaId: categoriaSelecionada.id,
       usuarioId: usuarioSelecionado.id,
+      ano: Number(produto.ano),
+      data: todayIsoDate(),
     })
 
     setSuccess(true)
@@ -176,7 +195,7 @@ function RightBar({
         <div className="rightbar-plans">
           {categorias.map((categoria) => {
             const selected = categoria.id === categoriaId
-            const atual = categoria.id === produto.categoria.id
+            const atual = categoria.id === produto.categoria?.id
 
             return (
               <button

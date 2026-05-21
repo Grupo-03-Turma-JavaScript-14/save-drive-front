@@ -1,10 +1,18 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
 import {
   formatMoney,
   getCategoriaNome,
 } from '../../../../../service/Service'
-import type { Categoria, Produto } from '../../../../../service/Types'
+
+import type {
+  Categoria,
+  CreateProdutoDto,
+  Produto,
+  UpdateProdutoDto,
+} from '../../../../../service/Types'
+
 import '../../../../css/Produto/Contratos/LeftBar.css'
 
 interface LeftBarProps {
@@ -12,8 +20,8 @@ interface LeftBarProps {
   categorias: Categoria[]
   produtoSelecionado: Produto | null
   onSelectProduto: (produto: Produto) => void
-  onCreateProduto: (produto: Omit<Produto, 'id'>) => void
-  onUpdateProduto: (produto: Produto) => void
+  onCreateProduto: (produto: CreateProdutoDto) => void
+  onUpdateProduto: (produto: UpdateProdutoDto) => void
   onDeleteProduto: (id: number) => void
 }
 
@@ -35,8 +43,14 @@ function LeftBar({
   const [modelo, setModelo] = useState('')
   const [ano, setAno] = useState(anoAtual)
   const [valorBase, setValorBase] = useState(3000)
-  const [categoriaId, setCategoriaId] = useState(categorias[0]?.id || 1)
+  const [categoriaId, setCategoriaId] = useState<number | null>(null)
   const [erro, setErro] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!categoriaId && categorias.length > 0) {
+      setCategoriaId(categorias[0].id)
+    }
+  }, [categorias, categoriaId])
 
   function abrirCadastro() {
     setEditandoId(null)
@@ -44,7 +58,7 @@ function LeftBar({
     setModelo('')
     setAno(anoAtual)
     setValorBase(3000)
-    setCategoriaId(categorias[0]?.id || 1)
+    setCategoriaId(categorias[0]?.id ?? null)
     setErro(null)
     setFormAberto(true)
   }
@@ -53,14 +67,20 @@ function LeftBar({
     setEditandoId(produto.id)
     setMarca(produto.marca)
     setModelo(produto.modelo)
-    setAno(produto.ano)
+    setAno(Number(produto.ano))
     setValorBase(Number(produto.valorBase))
-    setCategoriaId(produto.categoria.id)
+    setCategoriaId(produto.categoria?.id ?? categorias[0]?.id ?? null)
     setErro(null)
     setFormAberto(true)
   }
 
-  function handleSubmit(event: React.FormEvent) {
+  function fecharFormulario() {
+    setFormAberto(false)
+    setEditandoId(null)
+    setErro(null)
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setErro(null)
 
@@ -74,41 +94,59 @@ function LeftBar({
       return
     }
 
-    if (ano > anoAtual) {
+    if (!ano || Number.isNaN(Number(ano))) {
+      setErro('Informe um ano válido.')
+      return
+    }
+
+    if (Number(ano) > anoAtual) {
       setErro('O ano do veículo não pode ser maior que o ano atual.')
       return
     }
 
-    if (valorBase <= 0) {
+    if (!valorBase || Number(valorBase) <= 0) {
       setErro('O valor base precisa ser maior que zero.')
       return
     }
 
-    const categoria = categorias.find((item) => item.id === categoriaId)
-
-    if (!categoria) {
-      setErro('Categoria não encontrada.')
+    if (!categoriaId) {
+      setErro('Selecione uma categoria.')
       return
     }
 
-    const payload = {
-      marca: marca.trim(),
-      modelo: modelo.trim(),
-      ano,
-      valorBase,
-      categoria,
+    const categoriaExiste = categorias.some(
+      (categoria) => categoria.id === categoriaId,
+    )
+
+    if (!categoriaExiste) {
+      setErro('Categoria não encontrada.')
+      return
     }
 
     if (editandoId) {
       onUpdateProduto({
         id: editandoId,
-        ...payload,
+        marca: marca.trim(),
+        modelo: modelo.trim(),
+        ano: Number(ano),
+        valorBase: Number(valorBase),
+        categoria: {
+          id: categoriaId,
+        },
       })
     } else {
-      onCreateProduto(payload)
+      onCreateProduto({
+        marca: marca.trim(),
+        modelo: modelo.trim(),
+        ano: Number(ano),
+        valorBase: Number(valorBase),
+        categoria: {
+          id: categoriaId,
+        },
+      })
     }
 
-    setFormAberto(false)
+    fecharFormulario()
   }
 
   return (
@@ -137,7 +175,7 @@ function LeftBar({
           <div className="leftbar-form-title">
             <strong>{editandoId ? 'Editar veículo' : 'Novo veículo'}</strong>
 
-            <button type="button" onClick={() => setFormAberto(false)}>
+            <button type="button" onClick={fecharFormulario}>
               Cancelar
             </button>
           </div>
@@ -183,9 +221,13 @@ function LeftBar({
           <label>
             Categoria
             <select
-              value={categoriaId}
+              value={categoriaId ?? ''}
               onChange={(event) => setCategoriaId(Number(event.target.value))}
             >
+              <option value="" disabled>
+                Selecione uma categoria
+              </option>
+
               {categorias.map((categoria) => (
                 <option key={categoria.id} value={categoria.id}>
                   {getCategoriaNome(categoria)}
@@ -203,7 +245,7 @@ function LeftBar({
       <div className="leftbar-list">
         {produtos.map((produto) => {
           const ativo = produtoSelecionado?.id === produto.id
-          const temDesconto = anoAtual - produto.ano >= 10
+          const temDesconto = anoAtual - Number(produto.ano) >= 10
 
           return (
             <motion.article

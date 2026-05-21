@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+
 import '../../../css/Produto/Contratos/ContratoPage.css'
+
 import Loading from '../../../../components/Loading/Loading'
 import Topbar from './Components/Topbar'
 import LeftBar from './Components/LeftBar'
@@ -7,12 +9,15 @@ import RightBar from './Components/RightBar'
 import DownBar from './Components/DownBar'
 
 import { contratoApi } from '../../../../service/Service'
+
 import type {
   Categoria,
   Contrato as ContratoType,
   CreateContratoDto,
+  CreateProdutoDto,
   CreateUsuarioDto,
   Produto,
+  UpdateProdutoDto,
   Usuario,
 } from '../../../../service/Types'
 
@@ -22,8 +27,11 @@ function Contrato() {
   const [usuarios, setUsuarios] = useState<Usuario[]>([])
   const [contratos, setContratos] = useState<ContratoType[]>([])
 
-  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null)
-  const [usuarioSelecionado, setUsuarioSelecionado] = useState<Usuario | null>(null)
+  const [produtoSelecionado, setProdutoSelecionado] =
+    useState<Produto | null>(null)
+
+  const [usuarioSelecionado, setUsuarioSelecionado] =
+    useState<Usuario | null>(null)
 
   const [loading, setLoading] = useState(true)
   const [toast, setToast] = useState<string | null>(null)
@@ -50,10 +58,13 @@ function Contrato() {
       setUsuarios(usuariosData)
       setContratos(contratosData)
 
-      setProdutoSelecionado(produtosData[0] || null)
-      setUsuarioSelecionado(usuariosData[0] || null)
+      setProdutoSelecionado(produtosData[0] ?? null)
+      setUsuarioSelecionado(usuariosData[0] ?? null)
     } catch (error) {
-      mostrarErro('Erro ao carregar dados da API.')
+      const message =
+        error instanceof Error ? error.message : 'Erro ao carregar dados da API.'
+
+      mostrarErro(message)
     } finally {
       setLoading(false)
     }
@@ -61,12 +72,18 @@ function Contrato() {
 
   function mostrarSucesso(message: string) {
     setToast(message)
-    setTimeout(() => setToast(null), 3000)
+
+    setTimeout(() => {
+      setToast(null)
+    }, 3000)
   }
 
   function mostrarErro(message: string) {
     setErrorToast(message)
-    setTimeout(() => setErrorToast(null), 3500)
+
+    setTimeout(() => {
+      setErrorToast(null)
+    }, 3500)
   }
 
   async function criarUsuario(usuario: CreateUsuarioDto) {
@@ -87,7 +104,7 @@ function Contrato() {
     }
   }
 
-  async function criarProduto(produto: Omit<Produto, 'id'>) {
+  async function criarProduto(produto: CreateProdutoDto) {
     try {
       const novoProduto = await contratoApi.createProduto(produto)
       const produtosAtualizados = await contratoApi.findProdutos()
@@ -104,16 +121,20 @@ function Contrato() {
     }
   }
 
-  async function atualizarProduto(produto: Produto) {
+  async function atualizarProduto(produto: UpdateProdutoDto) {
     try {
       const produtoAtualizado = await contratoApi.updateProduto(produto)
       const produtosAtualizados = await contratoApi.findProdutos()
 
       setProdutos(produtosAtualizados)
 
-      if (produtoSelecionado?.id === produtoAtualizado.id) {
-        setProdutoSelecionado(produtoAtualizado)
-      }
+      setProdutoSelecionado((produtoAtual) => {
+        if (produtoAtual?.id === produtoAtualizado.id) {
+          return produtoAtualizado
+        }
+
+        return produtoAtual
+      })
 
       mostrarSucesso('Veículo atualizado com sucesso.')
     } catch (error) {
@@ -132,9 +153,13 @@ function Contrato() {
 
       setProdutos(produtosAtualizados)
 
-      if (produtoSelecionado?.id === id) {
-        setProdutoSelecionado(produtosAtualizados[0] || null)
-      }
+      setProdutoSelecionado((produtoAtual) => {
+        if (produtoAtual?.id === id) {
+          return produtosAtualizados[0] ?? null
+        }
+
+        return produtoAtual
+      })
 
       mostrarSucesso('Veículo removido com sucesso.')
     } catch (error) {
@@ -179,8 +204,8 @@ function Contrato() {
   }
 
   if (loading) {
-  return <Loading />
-}
+    return <Loading />
+  }
 
   return (
     <main className="contrato-page">
@@ -199,16 +224,17 @@ function Contrato() {
           onUpdateProduto={atualizarProduto}
           onDeleteProduto={deletarProduto}
         />
-<RightBar
-  categorias={categorias}
-  usuarios={usuarios}
-  produtoSelecionado={produtoSelecionado}
-  usuarioSelecionado={usuarioSelecionado}
-  onSelectUsuario={setUsuarioSelecionado}
-  onCreateUsuario={criarUsuario}
-  onCreateContrato={criarContrato}
-  onUpdateProduto={atualizarProduto}
-/>
+
+        <RightBar
+          categorias={categorias}
+          usuarios={usuarios}
+          produtoSelecionado={produtoSelecionado}
+          usuarioSelecionado={usuarioSelecionado}
+          onSelectUsuario={setUsuarioSelecionado}
+          onCreateUsuario={criarUsuario}
+          onCreateContrato={criarContrato}
+          onUpdateProduto={atualizarProduto}
+        />
       </section>
 
       <DownBar

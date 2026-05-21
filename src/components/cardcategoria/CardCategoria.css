@@ -1,0 +1,160 @@
+/* ========================================
+   CARD CATEGORIA
+======================================== */
+
+.card-categoria {
+    width: 380px;
+    min-height: 320px;
+    background: var(--color-surface);
+    display: flex;                    /* ← faltava */
+    flex-direction: column;           /* ← faltava */
+    justify-content: space-between;
+    padding: 24px;                    /* ← faltava */
+    border-radius: 16px;              /* ← faltava */
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+}
+
+.card-categoria:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 12px;
+}
+
+.card-header h2 {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.categoria-id {
+    background-color: rgba(6, 182, 212, 0.15);
+    color: var(--accent-cyan);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(6, 182, 212, 0.4);
+}
+
+/* ========================================
+   BODY
+======================================== */
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(226, 232, 240, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    margin: 0;    /* ← adicione */
+}
+
+.valor {
+    color: var(--white);
+    font-size: 1rem;
+    word-break: break-word;
+    margin: 0;    /* ← adicione */
+}
+
+/* ========================================
+   PRODUTOS
+======================================== */
+
+.produtos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.produtos-lista span {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--white);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.card-footer {
+    display: flex;
+    gap: 12px;
+}
+
+.card-footer button {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    border-radius: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                transform 0.1s ease;
+}
+
+.card-footer button:active {
+    transform: scale(0.97);
+}
+
+/* EDITAR */
+
+.card-footer button:first-child {
+    background: #008f5d;
+    color: var(--white);
+}
+
+.card-footer button:first-child:hover {
+    background: #007a50;
+}
+
+/* DELETAR */
+
+.card-footer button:last-child {
+    background-color: #EF4444;
+    color: var(--white);
+}
+
+.card-footer button:last-child:hover {
+    background-color: #DC2626;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1280px) {
+  .card-categoria {
+    width: 100%;
+  }
+}

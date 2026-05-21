@@ -1,7 +1,17 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   SAVEDRIVE - GLOBAL THEME
+========================================================================== */
+
 :root {
-  /* =========================
-     SAVEDRIVE / SEGUROS THEME
-  ========================= */
+  /* Cores oficiais */
+  --primary-navy: #1e3a8a;
+  --accent-cyan: #06b6d4;
+  --success-green: #98d8aa;
+  --bg-light: #f1f5f9;
+  --text-dark: #0f172a;
+  --white: #ffffff;
 
   /* Cores principais */
   --color-primary: #1e88e5;
@@ -40,6 +50,12 @@
   --text-muted: var(--color-slate-400);
   --text-light: var(--color-white);
 
+  /* Aliases para CSS antigo */
+  --color-text-dark: var(--color-slate-900);
+  --color-text-muted: var(--color-slate-500);
+  --color-button-text: var(--color-white);
+  --color-button-hover: #07549a;
+
   /* Bordas */
   --border-light: var(--color-slate-100);
   --border-default: var(--color-slate-200);
@@ -53,6 +69,10 @@
   --surface-primary-soft: rgba(30, 136, 229, 0.08);
   --surface-success-soft: rgba(0, 168, 107, 0.08);
   --surface-warning-soft: rgba(245, 158, 11, 0.1);
+
+  --color-surface: rgba(30, 58, 138, 0.88);
+  --color-surface-solid: #1e3a8a;
+  --color-surface-light: rgba(6, 182, 212, 0.9);
 
   /* Gradientes */
   --gradient-page: radial-gradient(
@@ -76,6 +96,10 @@
   --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 24px 60px rgba(7, 84, 154, 0.16);
 
+  /* Aliases para CSS antigo */
+  --shadow-soft: var(--shadow-sm);
+  --shadow-card: var(--shadow-md);
+
   /* Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -84,7 +108,108 @@
   --radius-2xl: 32px;
   --radius-full: 999px;
 
+  /* Alias antigo */
+  --radius-pill: var(--radius-full);
+
+  /* Fonte */
+  --font-main: "Poppins", "Lato", Arial, sans-serif;
+
   /* Transições */
   --transition-fast: 0.2s ease;
   --transition-default: 0.3s ease;
+}
+
+/* ==========================================================================
+   RESET GLOBAL
+========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-main);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  flex: 1;
+}
+
+/* ==========================================================================
+   COMPONENTES GLOBAIS
+========================================================================== */
+
+.menu-global {
+  background-color: var(--primary-navy);
+  color: var(--white);
+  padding: 15px 30px;
+}
+
+.rodape-global {
+  background-color: var(--text-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.btn-primary {
+  background-color: var(--accent-cyan);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background-color: #0891b2;
+}
+
+.badge-desconto {
+  background-color: var(--success-green);
+  color: var(--text-dark);
+  padding: 10px 15px;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   AJUSTE RESPONSIVO GLOBAL
+========================================================================== */
+
+@media (max-width: 768px) {
+  main {
+    padding: 24px 16px;
+  }
 }
