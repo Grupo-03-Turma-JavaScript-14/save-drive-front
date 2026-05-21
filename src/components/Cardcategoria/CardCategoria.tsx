@@ -1,4 +1,4 @@
-import "./cardcategoria.css";
+import "./CardCategoria.css";
 
 interface Produto {
   id: number;
