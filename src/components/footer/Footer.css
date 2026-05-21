@@ -1,0 +1,147 @@
+/* src/components/footer/Footer.css */
+
+:root {
+  --primary-navy: #1e3a8a;
+  --accent-cyan: #06b6d4;
+  --bg-dark: #020617;
+  --white: #ffffff;
+}
+
+.footer {
+  background-color: var(--primary-navy);
+  color: var(--white);
+  margin-top: 3rem;
+}
+
+.footer__main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Logo + texto */
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer__logo-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.footer__logo-text--accent {
+  color: var(--accent-cyan);
+}
+
+.footer__tagline {
+  font-size: 0.9rem;
+  color: rgba(248, 250, 252, 0.8);
+  max-width: 260px;
+}
+
+/* Social */
+.footer__social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.footer__social-link {
+  color: rgba(248, 250, 252, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__social-link:hover {
+  color: var(--accent-cyan);
+}
+
+/* Links rápidos */
+.footer__heading {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer__link {
+  font-size: 0.9rem;
+  color: rgba(248, 250, 252, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+  color: var(--accent-cyan);
+}
+
+/* Contato */
+.footer__contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(248, 250, 252, 0.8);
+}
+
+.footer__contact-icon {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Barra inferior */
+.footer__bottom {
+  background-color: var(--bg-dark);
+  border-top: 1px solid rgba(15, 23, 42, 0.8);
+}
+
+.footer__bottom-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__bottom-text {
+  font-size: 0.75rem;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+  .footer__main {
+    grid-template-columns: 1.3fr 1fr 1.1fr;
+    align-items: flex-start;
+  }
+
+  .footer__bottom-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
