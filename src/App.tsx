@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
 import Usuario from './pages/tsx/Usuario/Usuario'
 import Categoria from './pages/tsx/Categoria/Categoria'
 import Navbar from './components/navbar/Navbar';
@@ -16,6 +15,9 @@ function App() {
                     path="/"
                     element={<Home />}
                 />
+               <Routes>
+         <Route path="/sobre" element={<AboutUs />} />
+             </Routes>
                 <Route
                     path="/usuarios"
                     element={<Usuario />}
