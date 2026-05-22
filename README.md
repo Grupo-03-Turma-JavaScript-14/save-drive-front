@@ -2,8 +2,6 @@
 
 # 🚗 SaveDrive - Front-end
 
-<img width="1402" height="1122" alt="Imagem colada" src="https://github.com/user-attachments/assets/e3f509c8-11d2-4688-b996-0849501bf3eb" />
-
 </div>
 
 Plataforma desenvolvida para simular e gerenciar seguros automotivos, oferecendo uma experiência moderna, ágil e focada na proteção do motorista.
