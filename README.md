@@ -1,3 +1,5 @@
+<div align="center">
+  
 # 🚗 SaveDrive - Front-end
 
 Plataforma desenvolvida para simular e gerenciar seguros automotivos, oferecendo uma experiência moderna, ágil e focada na proteção do motorista.
@@ -6,7 +8,7 @@ Plataforma desenvolvida para simular e gerenciar seguros automotivos, oferecendo
 
 ## 💙 Sobre o Projeto
 
-O **SaveDrive** é uma aplicação front-end desenvolvida como o **Desafio 2 da Generation Brasil**. O objetivo principal é simular uma plataforma de seguros automotivos conectada diretamente a uma API REST, utilizando a tecnologia como ferramenta para proporcionar autonomia e previsibilidade financeira aos condutores.
+O **SaveDrive** é uma aplicação de seguro automotivo que atua de forma preventiva e corretiva, oferecendo suporte completo antes, durante e após imprevistos. Diferente das seguradoras tradicionais, que atuam apenas após sinistros, o SaveDrive foca em prevenção, reduzindo riscos e custos para o cliente através de manutenção e suporte contínuo.
 
 Este repositório contém todo o desenvolvimento do Front-end da aplicação, construído com foco em:
 
