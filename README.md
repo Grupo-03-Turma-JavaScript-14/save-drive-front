@@ -1,8 +1,10 @@
 <div align="center">
 
 # 🚗 SaveDrive - Front-end
-</div>
 
+<img width="1402" height="1122" alt="Imagem colada" src="https://github.com/user-attachments/assets/e3f509c8-11d2-4688-b996-0849501bf3eb" />
+
+</div>
 
 Plataforma desenvolvida para simular e gerenciar seguros automotivos, oferecendo uma experiência moderna, ágil e focada na proteção do motorista.
 
@@ -19,45 +21,22 @@ Este repositório contém todo o desenvolvimento do Front-end da aplicação, co
 - ♻️ Componentização reutilizável
 - 🚀 Performance e escalabilidade
 - 🧠 Navegação intuitiva
-- ✨ Experiência visual 
+- ✨ Experiência visual elegante
 
 A aplicação apresenta informações sobre os planos, fluxo de navegação institucional e uma regra de negócio especial para cálculo de vantagens.
 
 ---
-## 🏠 Home
+
+# 🏠 Home
 
 <p align="center">
   <img 
-    src="https://private-user-images.githubusercontent.com/203920656/596313887-ef6e7fe1-2f4f-4f8e-ace1-7b40b33e6de4.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Nzk0NDk4MzcsIm5iZiI6MTc3OTQ0OTUzNywicGF0aCI6Ii8yMDM5MjA2NTYvNTk2MzEzODg3LWVmNmU3ZmUxLTJmNGYtNGY4ZS1hY2UxLTdiNDBiMzNlNmRlNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNTIyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDUyMlQxMTMyMTdaJlgtQW16LVNwZXJlc09iSj1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.a-_-folkxx7jTFns2ljYkM3zOOtnb6ckNOobxk7wnjw"
+    src="https://github.com/user-attachments/assets/3a502812-59aa-47d3-b88a-1c0508798761"
     alt="Preview Home SaveDrive"
     width="100%"
   />
 </p>
----
 
-# 🚀 Funcionalidades da Interface
-
-- ✅ Navegação entre páginas com rotas fluidas e intuitivas
-- ✅ Sistema automatizado de cálculo de desconto
-- ✅ Aplicação de **20% de desconto** para veículos com mais de 10 anos
-- ✅ Layout totalmente responsivo
-- ✅ Componentização reutilizável
-- ✅ Integração completa com API REST
-- ✅ Estrutura escalável e organizada
-
----
-
-# 🧠 Tecnologias Utilizadas
-
-<div align="center">
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-
-</div>
 
 ---
 
